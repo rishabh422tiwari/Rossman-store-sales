@@ -191,7 +191,7 @@ Let's see the training and validation error for final model :
 - maybe try to turn off some feature
 - play with parameters like n_estimators, max_depth or alpha
 
-Learning from the project : Machine learning is applied science so play around the parameter and do hit and try as much as you can when training model.
+> Learning from the project : Machine learning is applied science so play around the parameter and do hit and try as much as you can when training model.
     
 
 
