@@ -3,4 +3,4 @@ store.csv
 submission.csv
 test.csv
 train.csv
-xgb_reg.pkl
+xgb_reg.sav
