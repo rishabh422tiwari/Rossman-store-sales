@@ -61,6 +61,8 @@ We scaled the numerical values but there something has to be done, see machine o
 OneHotEncoding simply means there are a lot of columns but there is only one column which is "Hot" or On or 1 which represents the catagory.
 
 ![OneHotEncoding](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+
+---
  
 ## Gradient Boosting Training
 
@@ -138,6 +140,8 @@ We can also Plot graph for it
 
 ![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
 
+---
+
 ## K Fold Cross Validation
 
 Notice that we didn't create a validation set before training our XGBoost model. We'll use a different validation strategy this time, called K-fold cross validation :
@@ -163,3 +167,24 @@ Let's train a final model on the entire training set with custom hyperparameters
                          colsample_bytree=0.7)
                     
     model.fit(X, targets)
+  
+Feature Importance for our final model :
+
+![OneHotEncoding](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+
+Let's see the training and validation error for final model :
+
+![OneHotEncoding](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+
+**After fine tuning error reduced to 638 which is pretty good because if we see the distribution of our Sales column most of the data point falls around 5000 to 8000 and i was able to achieve `R2_score` of 0.95 which can be interpreted as 95%** 
+
+---
+
+## Saving Model
+
+    import pickle
+    pickle.dump(model, open("xgb_reg.pkl", "wb"))
+    xgb_reg = pickle.load(open("xgb_reg.pkl", "rb"))
+    
+
+
