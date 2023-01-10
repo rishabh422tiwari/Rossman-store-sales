@@ -19,8 +19,34 @@ For Example :
 If date is 2015-07-31 then the extracted infromation will be these additional columns.
     
    `Year`: 2015
-   `Month`: 7 ( which can be also coverted into catagorical column "July"   
+   
+   `Month`: 7 (which can be also coverted into catagorical column "July")
+   
    `Day`: 31
+   
    `WeekOfYear`: 31
-> Now this information makes more sense and can be fed into the model easily
+   
+Now this information makes more sense and can be fed into the model easily
+
+### Store Open/Closed
+
+the sales are ZERO whenever the store is closed
+
+Instead of trying to model this relationship, it would be better to hard-code it in our predictions, and remove the rows where the store is closed. We won't remove any rows from the test set, since we need to make predictions for every row.
+
+### Competition
+
+Next, we can use the columns CompetitionOpenSince [Month/Year] columns from store df to compute the number of months for which a competitor has been open near the store.
+
+`CompetitionOpenSinceYear` and `CompetitionOpenSinceYear` will be converted into another column `CompetitionOpen`
+
+### Input and Target Columns¶
+
+Saving all the inputs and output column
+
+### Impute missing numerical data
+
+`CompetitionDistance` had 2186 nan value so we have to fill those values with appropriate values.
+
+we can simply fill it with the highest value (to indicate that competition is very far away) `max` finction can be used here
 ## Gradient Boosting Training
