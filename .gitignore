@@ -2,4 +2,5 @@ sample_submission.csv
 store.csv
 submission.csv
 test.csv
-train.csvs
+train.csv
+xgb_reg.pkl
