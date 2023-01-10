@@ -79,4 +79,13 @@ Here's a visual representation of gradient boosting:
 
 ![](https://miro.medium.com/max/560/1*85QHtH-49U7ozPpmA5cAaw.png)
 
+>**Prediction = Actual Value + Learning Rate * Decision tree (1) + Learning Rate * Decision tree(2) + .......**
+
+### Training
+
+To train a GBM, we can use the `XGBRegressor` class from the [`XGBoost`](https://xgboost.readthedocs.io/en/latest/) library.
+
+    from xgboost import XGBRegressor
+    model = XGBRegressor(random_state=42, n_jobs=-1, n_estimators=20, max_depth=4)
+
 
