@@ -13,11 +13,18 @@ Data preprocessing in Machine Learning refers to the technique of preparing (cle
 Feature engineering refers to manipulation — addition, deletion, combination, mutation — of your data set to improve machine learning model training, leading to better performance and greater accuracy
 ### Converting Date column
 First, let's convert Date to a date column and extract different parts of the date.
+
 For Example :
+
     If date is 2015-07-31 then the extracted infromation will be these additional columns.
+    
     `Year`: 2015
+    
     `Month`: 7 ( which can be also coverted into catagorical column "July"
+    
     `Day`: 31
+    
     `WeekOfYear`: 31
+    
 > Now this information makes more sense and can be fed into the model easily
 ## Gradient Boosting Training
