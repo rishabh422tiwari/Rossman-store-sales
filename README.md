@@ -88,4 +88,78 @@ To train a GBM, we can use the `XGBRegressor` class from the [`XGBoost`](https:/
     from xgboost import XGBRegressor
     model = XGBRegressor(random_state=42, n_jobs=-1, n_estimators=20, max_depth=4)
 
+> n_ jobs -> to configure the number of thread that it should use in the background (-1 means all threads available in machine) <br>
+> n_estimators -> number of decision trees that we will create<br>
 
+If we train an unbounded decision tree to predict the residuals then it will completely overfit the data therefore we are setting the max_depth = 4
+
+Let's train the model using `model.fit`.
+
+    model.fit(X,targets)
+
+### Prediction
+
+We can now make predictions and evaluate the model using `model.predict`.
+
+    preds = model.predict(X)
+
+### Evaluation
+
+Let's evaluate the predictions using RMSE error.
+
+    from sklearn.metrics import mean_squared_error
+
+    def rmse(a,b):
+        return mean_squared_error(a,b,squared=False)
+
+At first and very basic model i found the RMSE is 2377 which is not very bad considering we have not fine tuned model.
+
+### Visualization
+
+We can visualize individual trees using `plot_tree` (note: this requires the `graphviz` library to be installed).
+
+![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+
+> Notice how the trees only compute residuals, and not the actual target value. We can also visualize the tree as text.
+
+### Feature importance
+
+Just like decision trees and random forests, XGBoost also provides a feature importance score for each column in the input.
+
+> `feature_importances_` can be calculated in many ways, one of the way is called **information gain** which has to with how much each feature has contributed to reduction in loss over all the trees.<br>
+> Second is called `weight`, which counts how many times a particular feature was used to create a split.
+
+    importance_df = pd.DataFrame({
+        'feature': X.columns,
+        'importance': model.feature_importances_
+    }).sort_values('importance', ascending=False)
+    
+We can also Plot graph for it
+
+![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+
+## K Fold Cross Validation
+
+Notice that we didn't create a validation set before training our XGBoost model. We'll use a different validation strategy this time, called K-fold cross validation :
+
+![](https://vitalflux.com/wp-content/uploads/2020/08/Screenshot-2020-08-15-at-11.13.53-AM.png)
+
+Scikit-learn provides utilities for performing K fold cross validation.
+
+### Hyperparameter Tuning and Regularization
+
+Just like other machine learning models, there are several hyperparameters we can to adjust the capacity of model and reduce overfitting.
+
+<img src="https://i.imgur.com/EJCrSZw.png" width="480">
+
+Now just play with the parameters like `n_estimators`, `max_depth`, `learning_rate` , `booster` etc.
+
+### Putting it Together and Making Predictions 
+
+Let's train a final model on the entire training set with custom hyperparameters. 
+
+    model = XGBRegressor(n_jobs=-1, random_state=42, n_estimators=1000, 
+                         learning_rate=0.2, max_depth=10, subsample=0.9, 
+                         colsample_bytree=0.7)
+                    
+    model.fit(X, targets)
