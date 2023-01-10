@@ -186,5 +186,12 @@ Let's see the training and validation error for final model :
     pickle.dump(model, open("xgb_reg.pkl", "wb"))
     xgb_reg = pickle.load(open("xgb_reg.pkl", "rb"))
     
+What can be done to improve the model : 
+- Try Random Forest
+- maybe try to turn off some feature
+- play with parameters like n_estimators, max_depth or alpha
+
+Learning from the project : Machine learning is applied science so play around the parameter and do hit and try as much as you can when training model.
+    
 
 
