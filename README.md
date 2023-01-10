@@ -19,11 +19,8 @@ For Example :
 If date is 2015-07-31 then the extracted infromation will be these additional columns.
     
    `Year`: 2015
-    
-   `Month`: 7 ( which can be also coverted into catagorical column "July"
-    
+   `Month`: 7 ( which can be also coverted into catagorical column "July"   
    `Day`: 31
-    
-    `WeekOfYear`: 31
+   `WeekOfYear`: 31
 > Now this information makes more sense and can be fed into the model easily
 ## Gradient Boosting Training
