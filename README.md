@@ -15,7 +15,7 @@ Feature engineering refers to manipulation — addition, deletion, combination, 
 First, let's convert Date to a date column and extract different parts of the date.
 
 For Example :
-
+    ```
     If date is 2015-07-31 then the extracted infromation will be these additional columns.
     
     `Year`: 2015
@@ -25,6 +25,6 @@ For Example :
     `Day`: 31
     
     `WeekOfYear`: 31
-    
+    ```
 > Now this information makes more sense and can be fed into the model easily
 ## Gradient Boosting Training
