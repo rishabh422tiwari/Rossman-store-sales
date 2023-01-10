@@ -5,7 +5,7 @@ Building a xgboost regression model to predict the sales of forthcoming dates. i
 Studying the distribution of values in each column, and their relationship with the target column Sales.</br>
 let's see the Disctribution for column `Sales` and `Customers`
 
-![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+![distribution](https://github.com/rishabh422tiwari/Rossman-store-sales/blob/main/Images/Distribution.png?raw=true)
 
 ## Preprocessing and Feature Engineering
 Data preprocessing in Machine Learning refers to the technique of preparing (cleaning and organizing) the raw data to make it suitable for a building and training Machine Learning models.
@@ -120,7 +120,7 @@ At first and very basic model i found the RMSE is 2377 which is not very bad con
 
 We can visualize individual trees using `plot_tree` (note: this requires the `graphviz` library to be installed).
 
-![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+![Tree](https://github.com/rishabh422tiwari/Rossman-store-sales/blob/main/Images/tree.png?raw=true)
 
 > Notice how the trees only compute residuals, and not the actual target value. We can also visualize the tree as text.
 
@@ -137,8 +137,6 @@ Just like decision trees and random forests, XGBoost also provides a feature imp
     }).sort_values('importance', ascending=False)
     
 We can also Plot graph for it
-
-![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
 
 ---
 
@@ -170,11 +168,11 @@ Let's train a final model on the entire training set with custom hyperparameters
   
 Feature Importance for our final model :
 
-![OneHotEncoding](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+![feature importance](https://github.com/rishabh422tiwari/Rossman-store-sales/blob/main/Images/feature.png?raw=true)
 
 Let's see the training and validation error for final model :
 
-![OneHotEncoding](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+![error graph](https://github.com/rishabh422tiwari/Rossman-store-sales/blob/main/Images/error_graph.png?raw=true)
 
 **After fine tuning error reduced to 638 which is pretty good because if we see the distribution of our Sales column most of the data point falls around 5000 to 8000 and i was able to achieve `R2_score` of 0.95 which can be interpreted as 95%** 
 
