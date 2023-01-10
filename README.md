@@ -9,7 +9,7 @@ let's see the Disctribution for column `Sales` and `Customers`
 
 ## Preprocessing and Feature Engineering
 Data preprocessing in Machine Learning refers to the technique of preparing (cleaning and organizing) the raw data to make it suitable for a building and training Machine Learning models.</br>
-</br>
+
 Feature engineering refers to manipulation — addition, deletion, combination, mutation — of your data set to improve machine learning model training, leading to better performance and greater accuracy
 ### Converting Date column
 
