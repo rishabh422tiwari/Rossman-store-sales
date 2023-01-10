@@ -49,4 +49,20 @@ Saving all the inputs and output column
 `CompetitionDistance` had 2186 nan value so we have to fill those values with appropriate values.
 
 we can simply fill it with the highest value (to indicate that competition is very far away) `max` finction can be used here
+
+### Scale Numeric Valus
+
+I used `MinMaxScaler` from `sklearn.preprocessing` to scale the numerical values.
+
+### Encode Categorical Columns
+
+We scaled the numerical values but there something has to be done, see machine only understand numerical values but we have information in the form of catogories so lets convert the Catagorical values to Numerical with `OneHotEncoder`. 
+
+OneHotEncoding simply means there are a lot of columns but there is only one column which is "Hot" or On or 1.
+
+![convert notebook to web app](https://miro.medium.com/max/1400/1*ggtP4a5YaRx6l09KQaYOnw.png)
+
+### 
+
+
 ## Gradient Boosting Training
